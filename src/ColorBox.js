@@ -1,11 +1,19 @@
 import React, { Component } from "react"
-import './color-box.css'
+import "./color-box.css"
 
 class ColorBox extends Component {
 	render() {
+		const { name, background } = this.props
+
 		return (
-			<div className='color-box' style={{ background: this.props.background }} className="color-box">
-				<span>{this.props.name}</span>
+			<div className="color-box" style={{ background }}>
+				<div className="copy-container">
+					<div className="box-content">
+						<span>{name}</span>
+					</div>
+					<button className="copy-button">Copy</button>
+				</div>
+				<span className="see-more">More</span>
 			</div>
 		)
 	}

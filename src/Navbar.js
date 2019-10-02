@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import Slider from "rc-slider"
+import { Link } from "react-router-dom"
 import { Select, MenuItem, Snackbar, IconButton } from "@material-ui/core"
 import CloseIcon from "@material-ui/icons/Close"
 import "rc-slider/assets/index.css"
@@ -27,7 +28,7 @@ class Navbar extends Component {
 		return (
 			<header className="navbar">
 				<div className="logo">
-					<a href="/">colorati</a>
+					<Link to="/">colorati</Link>
 				</div>
 				<div className="slider-container">
 					<span>Level: {level}</span>
@@ -42,7 +43,11 @@ class Navbar extends Component {
 					</div>
 				</div>
 				<div className="select-container">
-					<Select value={format} onChange={this.handleFormatChange} className="select-format">
+					<Select
+						value={format}
+						onChange={this.handleFormatChange}
+						className="select-format"
+					>
 						<MenuItem value="hex">HEX - ex. #ffffff</MenuItem>
 						<MenuItem value="rgb">RGB - ex. rgb(255, 255, 255)</MenuItem>
 						<MenuItem value="rgba">

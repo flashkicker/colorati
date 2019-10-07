@@ -4,7 +4,7 @@ import { withStyles } from "@material-ui/styles"
 import styles from "./styles/MiniPaletteStyles"
 
 const MiniPalette = props => {
-	const { classes, paletteName, emoji, id, colors, handleClick } = props
+	const { classes, paletteName, emoji, colors, handleClick } = props
 	const { root, colorsStyle, title, emojiStyle, miniColor } = classes
 	const miniColorBoxes = colors.map(color => {
 		return (

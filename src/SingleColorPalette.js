@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom"
 import Navbar from "./Navbar"
 import ColorBox from "./ColorBox"
 import PaletteFooter from "./PaletteFooter"
@@ -39,7 +39,7 @@ class SingleColorPalette extends Component {
 					key={color.name}
 					name={color.name}
 					background={color[format]}
-					showMore={false}
+					showingFullPalette={false}
 				/>
 			)
 		})
@@ -50,7 +50,9 @@ class SingleColorPalette extends Component {
 				<div className="palette-colors">
 					{colorBoxes}
 					<div className="go-back color-box">
-						<Link to={`/palette/${id}`} className="back-button">GO BACK</Link>
+						<Link to={`/palette/${id}`} className="back-button">
+							GO BACK
+						</Link>
 					</div>
 				</div>
 				<PaletteFooter paletteName={paletteName} emoji={emoji} />

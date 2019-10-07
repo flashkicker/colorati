@@ -57,7 +57,14 @@
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	font-size: 12px;
-	/* font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif; */
+}
+
+.light-text {
+	color: white;
+}
+
+.color-box .dark-text {
+	color: rgba(0, 0, 0, 0.5);
 }
 
 .see-more {

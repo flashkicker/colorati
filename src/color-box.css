@@ -1,8 +1,0 @@
-.color-box.go-back {
-	background-color: black;
-}
-
-.color-box:hover .copy-button {
-	opacity: 1;
-	transition: 0.5s;
-}

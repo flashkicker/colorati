@@ -19,7 +19,7 @@ class PaletteList extends Component {
 					<nav className={nav}>
 						<h1>colorati</h1>
 						<Link to="/palette/new">
-							<h4>Create Palette</h4>
+							<h4>Create New Palette</h4>
 						</Link>
 					</nav>
 					<div className={miniPalettes}>

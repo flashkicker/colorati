@@ -11,9 +11,10 @@ import IconButton from "@material-ui/core/IconButton"
 import MenuIcon from "@material-ui/icons/Menu"
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft"
 import Button from "@material-ui/core/Button"
-import DraggableColorBox from "./DraggableColorBox"
+import DraggableColorList from "./DraggableColorList"
 import { ChromePicker } from "react-color"
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator"
+import { arrayMove } from "react-sortable-hoc"
 
 const drawerWidth = 400
 
@@ -142,9 +143,27 @@ class NewPaletteForm extends Component {
 		this.props.history.push("/")
 	}
 
+	removeColor = colorName => {
+		this.setState({
+			colors: this.state.colors.filter(color => color.name !== colorName)
+		})
+	}
+
+	onSortEnd = ({ oldIndex, newIndex }) => {
+		this.setState(({ colors }) => ({
+			colors: arrayMove(colors, oldIndex, newIndex)
+		}))
+	}
+
 	render() {
 		const { classes } = this.props
-		const { open, currentColor, colors, newName } = this.state
+		const {
+			open,
+			currentColor,
+			colors,
+			newPaletteName,
+			newColorName
+		} = this.state
 
 		return (
 			<div className={classes.root}>
@@ -178,7 +197,7 @@ class NewPaletteForm extends Component {
 									"Palette name already used"
 								]}
 								onChange={this.handleChange}
-								value={this.state.newPaletteName}
+								value={newPaletteName}
 							/>
 							<Button variant="contained" color="primary" type="submit">
 								Save Palette
@@ -216,7 +235,7 @@ class NewPaletteForm extends Component {
 					/>
 					<ValidatorForm onSubmit={this.addNewColor}>
 						<TextValidator
-							value={this.state.newColorName}
+							value={newColorName}
 							name="newColorName"
 							validators={["required", "isColorNameUnique", "isColorUnique"]}
 							errorMessages={[
@@ -230,7 +249,7 @@ class NewPaletteForm extends Component {
 							variant="contained"
 							type="submit"
 							color="primary"
-							style={{ backgroundColor: this.state.currentColor }}
+							style={{ backgroundColor: currentColor }}
 						>
 							Add Color
 						</Button>
@@ -242,9 +261,12 @@ class NewPaletteForm extends Component {
 					})}
 				>
 					<div className={classes.drawerHeader} />
-					{colors.map(color => {
-						return <DraggableColorBox color={color.color} name={color.name} />
-					})}
+					<DraggableColorList
+						colors={colors}
+						axis="xy"
+						removeColor={this.removeColor}
+						onSortEnd={this.onSortEnd}
+					/>
 				</main>
 			</div>
 		)

@@ -1,6 +1,6 @@
 export default {
 	palette: {
-		height: "100vh",
+		height: "99vh",
 		display: "flex",
 		flexDirection: "column"
 	},

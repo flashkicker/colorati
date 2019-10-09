@@ -3,7 +3,6 @@ import classNames from "classnames"
 import { withStyles } from "@material-ui/core/styles"
 import Drawer from "@material-ui/core/Drawer"
 import Typography from "@material-ui/core/Typography"
-import Divider from "@material-ui/core/Divider"
 import IconButton from "@material-ui/core/IconButton"
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft"
 import Button from "@material-ui/core/Button"
@@ -56,14 +55,14 @@ const styles = theme => ({
 		display: "flex",
 		flexDirection: "column",
 		justifyContent: "center",
-		alignItems: "center",
+		alignItems: "center"
 	},
 	buttons: {
-        width: "100%"
-    },
-    button: {
-        width: "50%"
-    }
+		margin: "0 3px"
+	},
+	button: {
+		margin: "0 0.5rem"
+	}
 })
 
 class NewPaletteForm extends Component {
@@ -97,11 +96,13 @@ class NewPaletteForm extends Component {
 		this.setState({ [event.target.name]: event.target.value })
 	}
 
-	handleSavePalette = newPaletteName => {
+	handleSavePalette = palette => {
+		const { paletteName, emoji } = palette
 		const newPalette = {
-			paletteName: newPaletteName,
-			id: newPaletteName.toLowerCase().replace(/ /g, "-"),
-			colors: this.state.colors
+			paletteName,
+			id: paletteName.toLowerCase().replace(/ /g, "-"),
+			colors: this.state.colors,
+			emoji
 		}
 
 		this.props.savePalette(newPalette)
@@ -160,11 +161,14 @@ class NewPaletteForm extends Component {
 						</IconButton>
 					</div>
 					<div className={classes.container}>
-						<Typography variant="h6">Design Your Palette</Typography>
+						<Typography gutterBottom variant="h6">
+							Design Your Palette
+						</Typography>
 						<div className={classes.buttons}>
 							<Button
 								variant="contained"
 								color="secondary"
+								margin="dense"
 								onClick={this.clearPalette}
 								className={classes.button}
 							>
@@ -173,6 +177,7 @@ class NewPaletteForm extends Component {
 							<Button
 								variant="contained"
 								color="primary"
+								margin="dense"
 								disabled={paletteIsFull}
 								onClick={this.addRandomColor}
 								className={classes.button}

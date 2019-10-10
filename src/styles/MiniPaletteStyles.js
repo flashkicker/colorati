@@ -6,8 +6,9 @@ export default {
 		position: "relative",
 		overflow: "hidden",
 		border: "1px solid black",
-		"&:hover": {
-			cursor: "pointer"
+		cursor: "pointer",
+		"&:hover svg": {
+			opacity: 1
 		}
 	},
 	colorsStyle: {
@@ -37,5 +38,18 @@ export default {
 		float: "left",
 		margin: "0",
 		position: "relative"
+	},
+	delete: {},
+	deleteIcon: {
+		color: "white",
+		backgroundColor: "#eb3d30",
+		width: "20px",
+		position: "absolute",
+		right: "0px",
+		top: "0px",
+		padding: "10px",
+		zIndex: 10,
+		opacity: 0,
+		transition: "all 0.3s ease-in-out !important"
 	}
 }

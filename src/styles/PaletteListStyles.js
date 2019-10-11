@@ -1,3 +1,5 @@
+import sizes from './sizes'
+
 export default {
 	root: {
 		backgroundColor: "blue",
@@ -8,11 +10,14 @@ export default {
 		overflow: "auto"
 	},
 	container: {
-		width: "70%",
+		width: "80%",
 		display: "flex",
 		alignItems: "flex-start",
 		flexDirection: "column",
-		flexWrap: "wrap"
+		flexWrap: "wrap",
+		[sizes.down("xs")]: {
+			width: "60%"
+		}
 	},
 	nav: {
 		display: "flex",
@@ -27,9 +32,16 @@ export default {
 	},
 	miniPalettes: {
 		boxSizing: "border-box",
+		justifyContent: "center",
 		width: "100%",
 		display: "grid",
-		gridTemplateColumns: "repeat(3, 30%)",
-		gridGap: "5%"
+		gridTemplateColumns: "repeat(4, 20%)",
+		gridGap: "1.5rem",
+		[sizes.down("sm")]: {
+			gridTemplateColumns: "repeat(2, 50%)"
+		},
+		[sizes.down("xs")]: {
+			gridTemplateColumns: "repeat(1, 100%)"
+		}
 	}
 }

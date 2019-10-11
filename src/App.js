@@ -42,55 +42,62 @@ class App extends Component {
 
 	render() {
 		return (
-			<div>
-				<Switch>
-					<Route
-						exact
-						path="/"
-						render={routeProps => (
-							<PaletteList
-								palettes={this.state.palettes}
-								deletePalette={this.deletePalette}
-								{...routeProps}
-							/>
-						)}
-					/>
-					<Route
-						exact
-						path="/palette/new"
-						render={routeProps => (
-							<NewPaletteForm
-								savePalette={this.savePalette}
-								{...routeProps}
-								palettes={this.state.palettes}
-							/>
-						)}
-					/>
-					<Route
-						exact
-						path="/palette/:id"
-						render={routeProps => (
-							<Palette
-								palette={generatePalette(
-									this.findPalette(routeProps.match.params.id)
-								)}
-							/>
-						)}
-					/>
-					<Route
-						exact
-						path="/palette/:paletteId/:colorId"
-						render={routeProps => (
-							<SingleColorPalette
-								colorId={routeProps.match.params.colorId}
-								palette={generatePalette(
-									this.findPalette(routeProps.match.params.paletteId)
-								)}
-							/>
-						)}
-					/>
-				</Switch>
-			</div>
+			<Switch>
+				<Route
+					exact
+					path="/"
+					render={routeProps => (
+						<PaletteList
+							palettes={this.state.palettes}
+							deletePalette={this.deletePalette}
+							{...routeProps}
+						/>
+					)}
+				/>
+				<Route
+					exact
+					path="/palette/new"
+					render={routeProps => (
+						<NewPaletteForm
+							savePalette={this.savePalette}
+							{...routeProps}
+							palettes={this.state.palettes}
+						/>
+					)}
+				/>
+				<Route
+					exact
+					path="/palette/:id"
+					render={routeProps => (
+						<Palette
+							palette={generatePalette(
+								this.findPalette(routeProps.match.params.id)
+							)}
+						/>
+					)}
+				/>
+				<Route
+					exact
+					path="/palette/:paletteId/:colorId"
+					render={routeProps => (
+						<SingleColorPalette
+							colorId={routeProps.match.params.colorId}
+							palette={generatePalette(
+								this.findPalette(routeProps.match.params.paletteId)
+							)}
+						/>
+					)}
+				/>
+				<Route
+					render={routeProps => (
+						<PaletteList
+							palettes={this.state.palettes}
+							deletePalette={this.deletePalette}
+							{...routeProps}
+						/>
+					)}
+				/>
+			</Switch>
 		)
 	}
 }

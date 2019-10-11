@@ -59,7 +59,7 @@ class NewPaletteFormNavbar extends Component {
 							color="primary"
 							onClick={this.showForm}
 						>
-							Save Palette
+							Save
 						</Button>
 						<Link to="/" className={classes.link}>
 							<Button
@@ -67,7 +67,7 @@ class NewPaletteFormNavbar extends Component {
 								variant="contained"
 								color="secondary"
 							>
-								Go Back
+								Back
 							</Button>
 						</Link>
 					</div>

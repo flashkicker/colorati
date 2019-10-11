@@ -42,9 +42,9 @@ class PaletteList extends Component {
 	}
 
 	render() {
-		const { palettes, classes, deletePalette } = this.props
+		const { palettes, classes } = this.props
 		const { root, container, nav, miniPalettes } = classes
-		const { openDeleteDialog, deletingId } = this.state
+		const { openDeleteDialog } = this.state
 
 		return (
 			<div className={root}>

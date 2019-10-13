@@ -34,7 +34,6 @@ class NewPaletteFormNavbar extends Component {
 				<AppBar
 					position="fixed"
 					color="default"
-					boxShadow={0}
 					className={classNames(classes.appBar, {
 						[classes.appBarShift]: open
 					})}

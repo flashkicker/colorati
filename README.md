@@ -1,4 +1,4 @@
-Colorati (https://colorati.herokuapp.com/)
+## Colorati (https://colorati.herokuapp.com/)
 
 - Create your own color palettes.
 - Rearrange color boxes in your palette using drag-n-drop.

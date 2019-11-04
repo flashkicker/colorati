@@ -49,6 +49,7 @@ const styles = {
 	text: {
 		[sizes.down("sm")]: {
 			padding: "5px",
+			userSelect: "none"
 		}
 	},
 	deleteIcon: {

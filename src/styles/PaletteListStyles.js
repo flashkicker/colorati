@@ -41,6 +41,9 @@ export default {
 		"& a": {
 			textDecoration: "none",
 			color: "white"
+		},
+		[sizes.down("sm")]: {
+			textAlign: "right"
 		}
 	},
 	miniPalettes: {

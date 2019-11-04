@@ -127,15 +127,17 @@ class NewPaletteForm extends Component {
 								variant="contained"
 								color="secondary"
 								margin="dense"
+								size="small"
 								onClick={this.clearPalette}
 								className={classes.button}
 							>
-								Clear Palette
+								Clear
 							</Button>
 							<Button
 								variant="contained"
 								color="primary"
 								margin="dense"
+								size="small"
 								disabled={paletteIsFull}
 								onClick={this.addRandomColor}
 								className={classes.button}

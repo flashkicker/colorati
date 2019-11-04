@@ -14,7 +14,10 @@ const styles = theme => ({
 	drawerPaper: {
 		width: drawerWidth,
 		display: "flex",
-		alignItems: "center"
+		alignItems: "center",
+		[sizes.down("sm")]: {
+			width: window.innerWidth
+		}
 	},
 	drawerHeader: {
 		display: "flex",

@@ -8,6 +8,8 @@ import Toolbar from "@material-ui/core/Toolbar"
 import Typography from "@material-ui/core/Typography"
 import IconButton from "@material-ui/core/IconButton"
 import ChevronRightIcon from "@material-ui/icons/ChevronRight"
+import SaveIcon from "@material-ui/icons/SaveTwoTone"
+import BackIcon from "@material-ui/icons/ArrowBackTwoTone"
 import Button from "@material-ui/core/Button"
 import PaletteMetaForm from "./PaletteMetaForm"
 import styles from "./styles/NewPaletteFormNavbarStyles"
@@ -23,6 +25,51 @@ class NewPaletteFormNavbar extends Component {
 
 	hideForm = () => {
 		this.setState({ formShowing: false })
+	}
+
+	renderButtons = () => {
+		const { classes } = this.props
+
+		if (window.innerWidth <= 575.98) {
+			return (
+				<div className={classes.navButtons}>
+					<IconButton
+						className={classes.fab}
+						color="primary"
+						onClick={this.showForm}
+					>
+						<SaveIcon />
+					</IconButton>
+					<Link to="/" className={classes.link}>
+						<IconButton className={classes.button} color="secondary">
+							<BackIcon />
+						</IconButton>
+					</Link>
+				</div>
+			)
+		}
+
+		return (
+			<div className={classes.navButtons}>
+				<Button
+					className={classes.button}
+					variant="contained"
+					color="primary"
+					onClick={this.showForm}
+				>
+					Save
+				</Button>
+				<Link to="/" className={classes.link}>
+					<Button
+						className={classes.button}
+						variant="contained"
+						color="secondary"
+					>
+						Back
+					</Button>
+				</Link>
+			</div>
+		)
 	}
 
 	render() {
@@ -51,25 +98,7 @@ class NewPaletteFormNavbar extends Component {
 							Create a Palette
 						</Typography>
 					</Toolbar>
-					<div className={classes.navButtons}>
-						<Button
-							className={classes.button}
-							variant="contained"
-							color="primary"
-							onClick={this.showForm}
-						>
-							Save
-						</Button>
-						<Link to="/" className={classes.link}>
-							<Button
-								className={classes.button}
-								variant="contained"
-								color="secondary"
-							>
-								Back
-							</Button>
-						</Link>
-					</div>
+					{this.renderButtons()}
 				</AppBar>
 				{this.state.formShowing && (
 					<PaletteMetaForm

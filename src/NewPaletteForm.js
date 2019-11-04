@@ -151,6 +151,11 @@ class NewPaletteForm extends Component {
 							colors={colors}
 						/>
 					</div>
+					<span style={{ padding: "30px 30px 0px 30px", textAlign: "center" }}>
+						<strong>
+							Hint: You can re-arrange the color boxes by dragging them around
+						</strong>
+					</span>
 				</Drawer>
 				<main
 					className={classNames(classes.content, {
